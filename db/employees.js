@@ -11,9 +11,6 @@ const employees = [
   { id: 10, name: "Gwen Grollmann" },
 ];
 
-/* WARNING: this must remain the default export in order for the tests to work! */
-export default employees;
-
 export function getEmployees() {
   return employees;
 }
@@ -26,3 +23,19 @@ export function getRandomEmployee() {
   const randomIndex = Math.floor(Math.random() * employees.length);
   return employees[randomIndex];
 }
+
+//POST REQUEST ===>BODY PARSING
+export function createEmployee(name) {
+  const newEmployee = {
+    id: employees.length + 1,
+    name: name,
+  };
+
+  //add emoloyee to end of array
+  employees.push(newEmployee);
+  return newEmployee;
+}
+//now go import createEmployee in app.js and add POST request to routes
+
+/* WARNING: this must remain the default export in order for the tests to work! */
+export default employees;
